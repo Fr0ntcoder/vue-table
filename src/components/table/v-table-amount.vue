@@ -18,9 +18,11 @@ export default {
         ...mapGetters(["GET_AMOUNT"])
     },
     methods: {
-        ...mapActions(["GET_AMOUNT_USERS"]),
+        ...mapActions(["GET_AMOUNT_USERS","GET_USERS","GET_PAGE_USERS"]),
         handlerAmount(n) {
             this.GET_AMOUNT_USERS(n);
+            this.GET_PAGE_USERS(1);
+            this.GET_USERS();
         }
     }
 }

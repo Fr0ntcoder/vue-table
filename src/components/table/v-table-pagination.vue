@@ -21,20 +21,23 @@ export default {
         ...mapGetters(["GET_PAGE"])
     },
     methods: {
-        ...mapActions(["PAGE_USERS","GET_PAGE_USERS","PAGE_NEXT","PAGE_PREV"]),
+        ...mapActions(["PAGE_USERS","GET_PAGE_USERS","GET_USERS","PAGE_NEXT","PAGE_PREV"]),
         handlerPage(n) {
             this.GET_PAGE_USERS(n);
+            this.GET_USERS()
         },
         handlerNext() {
             if(this.GET_PAGE < this.pageMax) {
                 this.PAGE_NEXT()
                 this.GET_PAGE_USERS(this.GET_PAGE);
+                this.GET_USERS()
             }
         },
         handlerPrev() {
             if(this.GET_PAGE != 1) {
                 this.PAGE_PREV()
                 this.GET_PAGE_USERS(this.GET_PAGE);
+                this.GET_USERS()
             }
         }
     }
